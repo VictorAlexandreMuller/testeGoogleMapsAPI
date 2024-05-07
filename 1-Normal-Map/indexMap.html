@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Maps API</title>
+    <link rel="stylesheet" href="../0-Styles-CSS/stylesMap.css" />
+  </head>
+  <body>
+    <section class="firstSection">
+      <div class="divMapForms">
+        <button id="roadmap">Modo Roadmap</button>
+        <button id="satellite">Modo Satélite</button>
+        <button id="hybrid">Modo Hybrid</button>
+        <button id="terrain">Modo Terrain</button>
+      </div>
+      <div id="map"></div>
+    </section>
+  </body>
+  <script src="scriptMap.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZfKrBUVDGNyhpVY9HKDUK3EkObju85hM&callback=initMap"
+    async
+    defer
+  ></script>
+</html>
