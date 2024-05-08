@@ -1,4 +1,6 @@
-var map;
+// ---------------------------------------------------------------
+// ----------------------------Botoes-----------------------------
+// ---------------------------------------------------------------
 var buttonRoadMap = document.querySelector("#roadmap");
 var buttonSatellite = document.querySelector("#satellite");
 var buttonHybrid = document.querySelector("#hybrid");
@@ -19,6 +21,11 @@ buttonHybrid.addEventListener("click", function () {
 buttonTerrain.addEventListener("click", function () {
   map.setMapTypeId("terrain");
 });
+// ---------------------------------------------------------------
+// ---------------------------------------------------------------
+// ---------------------------------------------------------------
+
+var map;
 
 function initMap() {
   var mapOptions = {
