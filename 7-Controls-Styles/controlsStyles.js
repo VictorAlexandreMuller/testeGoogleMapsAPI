@@ -4,24 +4,54 @@
 //
 
 var map;
+const centerMap = { lat: -3.716816, lng: -38.519115 };
+
+// CSS
+// Interacao
+// div - Controle
+// div - ui
+// div - text
+
+class CenterControl {
+  constructor(map) {
+    this.controlDiv = document.createElement("div");
+    this.controlUI = document.createElement("div");
+    this.controlText = document.createElement("div");
+
+    this.controlUI.style.backgroundColor = "#000"; // Preto
+    this.controlUI.style.border = "2px solid #ebebeb";
+    this.controlUI.style.borderRadius = "3px";
+    this.controlUI.style.padding = "6px";
+    this.controlUI.title = "Centralizar Mapa";
+    this.controlUI.style.cursor = "pointer";
+
+    this.controlDiv.appendChild(this.controlUI);
+
+    this.controlText.style.fontSize = "16px";
+    this.controlText.style.textAlign = "center";
+    this.controlText.style.lineHeight = "20px";
+    this.controlText.style.color = "#fff"; // Branco
+    this.controlText.innerHTML = "Centralizar";
+
+    this.controlUI.appendChild(this.controlText);
+
+    this.controlUI.addEventListener("click", () => {
+      map.setCenter(centerMap);
+    });
+  }
+}
 
 function initMap() {
   var mapOptions = {
-    center: { lat: -23.4698412, lng: -47.4299885 },
+    center: centerMap,
     zoom: 8,
-    // disableDefaultUI: true, // desabilita o setup padrao dos controles e retira todos da tela
-    zoomControl: false,
-    streetViewControl: false,
-
-    mapTypeControlOptions: {
-      style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR, //DROPDOWN_MENU ~~ coloca uma comboBox
-      position: google.maps.ControlPosition.TOP_CENTER,
-    },
-
-    fullscreenControlOptions: {
-      position: google.maps.ControlPosition.RIGHT_BOTTOM,
-    },
   };
 
   map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+  const centerControl = new CenterControl(map);
+
+  map.controls[google.maps.ControlPosition.TOP_CENTER].push(
+    centerControl.controlDiv
+  );
 }
