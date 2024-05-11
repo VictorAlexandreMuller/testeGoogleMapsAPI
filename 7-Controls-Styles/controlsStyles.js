@@ -9,8 +9,8 @@ const centerMap = { lat: -3.716816, lng: -38.519115 };
 // CSS
 // Interacao
 // div - Controle
-// div - ui
-// div - text
+//     div - ui
+//         div - text
 
 class CenterControl {
   constructor(map) {
